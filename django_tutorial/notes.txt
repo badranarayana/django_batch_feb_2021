@@ -1,0 +1,177 @@
+
+
+
+# django-admin.py startproject <project_name>
+
+
+How do you create a django app and register in django project?
+We create by using below command
+$ python manage.py startapp first_app
+
+after that we have to tell django about our app(register app name in installed app)
+
+
+
+
+models.py
+ -> created a model class
+--> manage.py makemigrations
+ --> creates a python  migration file inside app migrattions
+ --> manage.py migrate(looks into  app migration folder figure out any un aplied migration to db)
+
+
+
+# How to create a model in django?
+--> import Django model
+from django.db import models
+
+--> extend(inherit)  model class with base model the django identify this class as django model
+--> model is mapped to an db table that means model name will the table name
+class Book(models.Model):
+    pass
+
+--> Next add a model field which are equal to db table columns
+class Book(models.Model):
+    name = models.CharField(max_length=100)
+    subject = models.CharField(max_length=200, null=True)
+    num_of_pages = models.IntegerField()
+    created_date = models.DateField()
+
+    'AutoField', 'BLANK_CHOICE_DASH', 'BigAutoField', 'BigIntegerField',
+    'BinaryField', 'BooleanField', 'CharField', 'CommaSeparatedIntegerField',
+    'DateField', 'DateTimeField', 'DecimalField', 'DurationField',
+    'EmailField',, 'FilePathField',
+    'FloatField', 'GenericIPAddressField', 'IPAddressField', 'IntegerField',
+    'NOT_PROVIDED', 'NullBooleanField', 'PositiveIntegerField',
+    'PositiveSmallIntegerField', 'SlugField', 'SmallIntegerField', 'TextField',
+    'TimeField', 'URLField', 'UUIDField',
+
+
+
+
+
+
+
+# Done with model creation
+
+
+# is that model available in DB ?
+NO, because we just defined the model, it is not sysnced with database.
+
+# we have to run makemigrations and migrate to synce django model changes to db
+$ python manage.py makemigrations <app_name>
+$ Synce the migrations to db
+
+$ python manage.py migrate
+  above command connect with db server and execute the sql statement
+
+  # How migration command creating connection db?
+  --> migrate command program have logic to read connect info from setting.py
+
+
+
+# Table in created in db
+
+# sql: insert into <table_name>(name)values('badra')
+
+
+# import your model class
+$ from .models import Book
+$ myBook = Book(name="python",subject="django", num_of_pages=10, date_created=datetime.now())
+$ myBook.save()
+# it will covert this statement to sql insert statement(db adapters convert to db specific sql syntax)
+
+
+
+
+
+
+
+
+
+
+
+
+# start any app --> db design(tables , relations, etc)
+
+
+
+Admin --> departments --> employees
+
+
+Department:
+   - id(auto increment, int, primary key)
+   - name (text)
+   - description(text)
+   - date created(datetime)
+   - date updated(datetime)
+
+ forienkey contraint
+
+
+Employee:
+   - id(auto increment, int, primary key)
+   - name (text)
+   - dob (date)
+   - salary (number)
+   - address (text)
+   - date created( datetime)
+   - date updated( datetime)
+   - department id (int, reltion is foreign key ralation)
+
+
+
+# How to store data/insert data into table
+# insert into department(name, description) values("HR", "HR opearation");
+
+# Create instance of class
+obj = myClass(name=20, age=20)
+obj.save()
+
+# How do fecth the data through ORM?
+
+records = Department.objects.all()
+# Select * from Department;
+list of depratment objects
+
+for obj in records:
+   print(obj.description)
+
+# delete the data
+department.objects.filter(name='HR').delete()
+# Delete from department where name = "HR"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# How to create a urls
+# how to create views
+# how to include a app urls.py in project urls.py
+
+
+
+
+
+
+
+
+
+
+
+
+
