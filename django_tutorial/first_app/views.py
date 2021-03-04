@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse
 
+# Simplae views to understad the django concepts, in realtime we may to write some complex views
 # Create your views here.
 def home_view(request):
     # QUERY DATABASE
