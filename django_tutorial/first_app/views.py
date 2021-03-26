@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 
 # Simplae views to understad the django concepts, in realtime we may to write some complex views
 # Create your views here.
@@ -48,6 +48,36 @@ def get_dept_list(request):
     context['departments'] = departments
 
     return render(request, template_name="first_app/dept_list.html", context=context)
+
+
+def create_dept(request):
+    """
+    This view is responsible to give template and handl posting of data
+    :param request:
+    :return:
+    """
+    # 'get' and 'post'
+    if request.method == 'POST':
+        #import pdb;pdb.set_trace()
+        # l - show the few lines of code
+        # n - go to next line
+        # c - continue
+        """
+        <QueryDict: {'csrfmiddlewaretoken': ['wiMalhPw2pclV1mFIK4u9XwWZJmUKJ2kL7VgJtN4iTZA6XjI3Y7zUsRNnkU4xwyt'], 
+        'deptName': ['my nde dept 1'], 'deptDescription': ['new dept description'], 'deptLocation': ['mumbai'], 'deptPinCode': ['566622']}>
+        """
+        dept_name = request.POST.get('deptName')
+        dept_description = request.POST.get('deptDescription')
+        dept_location = request.POST.get('deptLocation')
+        dept_pin_code = request.POST.get('deptPinCode')
+        # ORM class(model)
+        dept = Department(name=dept_name, description=dept_description, location=dept_location, pin_code=dept_pin_code)
+        dept.save()
+        return redirect(to="dept_list")
+
+
+    if request.method == 'GET':
+        return render(request, template_name="first_app/create_dept.html", context={})
 
 
 

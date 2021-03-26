@@ -6,34 +6,39 @@
 </head>
 <body>
 <h1> DEpt List HTML</h1>
+
+<a href="create"> Add Department</a>
 <table border="1">
     <thead>
     <th> Dept Name</th>
     <th> Description</th>
     <th> location</th>
+    <th> pincode</th>
     </thead>
     <tbody>
-    <tr>
-    <td>dept_1</td>
-    <td>operations</td>
-    <td>Hyderabd</td>
+    {%  if departments %}
+        {% for dept in departments %}
+        <tr>
+            <td> {{ dept.name }}</td>
+            <td> {{ dept.description }}</td>
+            <td> {{ dept.location }} </td>
+            <td> {{ dept.pin_code }} </td>
+
         </tr>
-    <tr>
-    <td>dept_2</td>
-    <td>operations</td>
-    <td>Hyderabd</td>
-    </tr>
-     <tr>
-    <td>dept_1</td>
-    <td>operations</td>
-    <td>Hyderabd</td>
-        </tr>
-    <tr>
-    <td>dept_2</td>
-    <td>operations</td>
-    <td>Hyderabd</td>
-    </tr>
+        {% endfor %}
+
+    {% endif %}
     </tbody>
 </table>
+
+
+<h1> display department name:</h1>
+<ul>
+
+{% for dept in departments %}
+    <li>{{ dept.name }} </li>
+{% endfor %}
+
+    </ul>
 </body>
 </html>
