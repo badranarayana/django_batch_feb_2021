@@ -36,6 +36,19 @@ def get_dept_details(request, dept_id):
         dept['exception'] = f"NO Details found for id {dept_id}"
     return render(request, template_name="first_app/dept_details.html", context=dept)
 
+def get_dept_list(request):
+    """
+    get all depts form db and display in html
+    :param request:
+    :return:
+    """
+
+    departments = Department.objects.all()
+    context = {}
+    context['departments'] = departments
+
+    return render(request, template_name="first_app/dept_list.html", context=context)
+
 
 
 
