@@ -3,11 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    {% load custom_tags %}
 </head>
 <body>
-<a href="dept_list"> Dept List</a>
+<br>
+<a href="{% url 'dept_list'  %}"> Dept List</a>
+<br>
+<label>Current Date:  {% now "d-M-Y" %}</label>
+
+<label> user Name: {{ 'badra'|title }}</label>
+formated user name: {{'Badra Narayana' }}
+<br>
+
+<label> First Name: {{ 'badra narayana'| modify_name:'first_name' }}</label>
+<br>
+<label> Last Name: {{ 'badra narayana'| modify_name:'last_name' }}</label>
+<br>
+<label> Title Case: {{ 'badra narayana'| modify_name:'title_case' }}</label>
+<br>
+<label> Upper Case: {{ 'badra narayana'| modify_name:'' }}</label>
+<br>
+<label> first name title Case: {{ 'badra narayana'| modify_name:'first_name' | modify_name:"upper_case"  }}</label>
+
 <form action=""  method="POST">
     {% csrf_token %}
+
     <label> Name: </label> <input type="text" name="deptName">
     <br>
     <label> Description: </label> <textarea rows="4" cols="10" name="deptDescription"></textarea>

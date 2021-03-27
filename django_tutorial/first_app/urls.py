@@ -13,5 +13,5 @@ urlpatterns = [
     path("contactus", contactus_view),
     path("departments/<int:dept_id>/", get_dept_details),
     path("departments/dept_list", get_dept_list, name='dept_list'),
-    path("departments/create", create_dept),
+    path("departments/create", create_dept, name='create_dept'),
 ]

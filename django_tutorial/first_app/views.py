@@ -46,6 +46,7 @@ def get_dept_list(request):
     departments = Department.objects.all()
     context = {}
     context['departments'] = departments
+    context['userName'] = 'Badra'
 
     return render(request, template_name="first_app/dept_list.html", context=context)
 
