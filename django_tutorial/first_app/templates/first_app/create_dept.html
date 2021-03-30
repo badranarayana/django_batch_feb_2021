@@ -25,6 +25,14 @@ formated user name: {{'Badra Narayana' }}
 <br>
 <label> first name title Case: {{ 'badra narayana'| modify_name:'first_name' | modify_name:"upper_case"  }}</label>
 
+
+<h1> Django Custom tages:</h1>
+
+current Date and Tme: {% current_time "%d-%m-%Y %H:%M:%S %p" %}
+<br>
+Current Time: {% current_time "%H:%M:%S %p" %}
+<br>
+
 <form action=""  method="POST">
     {% csrf_token %}
 

@@ -1,5 +1,5 @@
 from django import template
-
+from datetime import datetime
 register = template.Library()
 
 
@@ -19,6 +19,11 @@ def modify_name(value, arg):
         return value.upper()
 
     return value
+
+
+@register.simple_tag
+def current_time(formate_str):
+    return datetime.now().strftime(formate_str)   # '12/2/2021
 
 
 register.filter("modify_name", modify_name)
