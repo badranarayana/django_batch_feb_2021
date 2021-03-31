@@ -1,0 +1,22 @@
+
+{% load custom_tags %}
+<table border="1">
+ <thead>
+ <tr>
+ <td>Username</td>
+ <td>First name</td>
+ <td>Last name</td>
+ <td>email</td>
+ </tr>
+ </thead>
+ <tbody>
+ {% for user in users %}
+ <tr>
+ <td>{{user.username}}</td>
+ <td>{{user.first_name}}</td>
+ <td>{{user.last_name}}</td>
+ <td>{{user.email}}</td>
+ </tr>
+ {% endfor %}
+ </tbody>
+</table>

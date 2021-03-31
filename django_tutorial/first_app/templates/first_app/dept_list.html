@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    {% load custom_tags %}
 </head>
 <body>
 <h1> DEpt List HTML</h1>
@@ -40,5 +41,13 @@
 {% endfor %}
 
     </ul>
+
+<h1> User tables data</h1>
+
+{% show_users_table %}
+
+
+
+
 </body>
 </html>
