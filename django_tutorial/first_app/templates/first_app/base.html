@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}   {% endblock %}</title>
+
+    {% load static %}
+    {% load custom_tags %}
+    <!--    CSS and JS common things-->
+     <style>
+    {% block style %}
+    {% endblock %}
+     </style>
+
+    {% block js %}
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+</head>
+<body class="bodyclass" style="background-image: url('{% static 'img/body_background.webp' %}')">
+<!--https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?cs=srgb&dl=pexels-simon-migaj-747964.jpg&fm=jpg-->
+
+<!--<body class="bodyclass" style="background-image: url('https://images.pexels.com/photos/696644/pexels-photo-696644.jpeg?crop=entropy&cs=srgb&dl=pexels-gabriel-peter-696644.jpg&fit=crop&fm=jpg&h=853&w=1280')">-->
+<div id="container"  align="center">
+<br>
+{% block content %}
+this is a base template content
+{% endblock %}
+
+</div>
+</body>
+</html>

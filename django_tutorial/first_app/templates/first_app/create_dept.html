@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    {% load custom_tags %}
-</head>
-<body>
-<br>
+{% extends 'first_app/base.html' %}
+{% load custom_tags %}
+
+{% block title %} Create Department {% endblock %}
+
+{% block content %}
 <a href="{% url 'dept_list'  %}"> Dept List</a>
 <br>
 
@@ -55,5 +52,5 @@ formated user name: {{'Badra Narayana' }}
 <h1> Users list</h1>
 {% show_users_table %}
 
-</body>
-</html>
+{% endblock %}
+

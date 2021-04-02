@@ -1,12 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    {% load custom_tags %}
-</head>
-<body>
-<h1> DEpt List HTML</h1>
+{% extends 'first_app/base.html' %}
+
+{% load custom_tags %}
+
+{% block title %} Dept List {% endblock %}
+
+{% block style %}
+
+        h1 {
+    color: green;;
+    }
+{% endblock %}
+
+{% block content %}
+<h1> Departments List: </h1>
 
 <a href="{% url 'create_dept' %}"> Add Department</a>
 <table border="1">
@@ -47,7 +53,4 @@
 {% show_users_table %}
 
 
-
-
-</body>
-</html>
+{% endblock %}
