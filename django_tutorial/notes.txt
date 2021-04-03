@@ -167,6 +167,73 @@ department.objects.filter(name='HR').delete()
 
 
 
+# template inheritance
+# static file configuration in Django
+
+
+
+
+# Django Forms:
+
+--> It is python class, used to define html inputs and add validations on data
+
+--> forms will covert input data into python native types(type convertion)
+
+--> forms allows us to write server side validation on all fields or specific field
+
+
+
+from django.forms import Form
+
+class CreateDept(Form):
+# we define all your html input fields(textbox, dropdown, checkbox, radio, etc..)
+    name = forms.TextField(name="name")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
+from .forms import EmployeeForm
 
 # Simplae views to understad the django concepts, in realtime we may to write some complex views
 # Create your views here.
@@ -81,6 +82,31 @@ def create_dept(request):
         return render(request, template_name="first_app/create_dept.html", context={})
 
 
+def render_with_django_form(request):
+    context = {}
+
+    if request.method == 'POST':
+        form = EmployeeForm(request.POST)
+        context['employeeForm'] = form
+        if form.is_valid():
+            # model required to save data
+
+            return HttpResponse("Form submitted.")
+
+    else:  # get request
+        form = EmployeeForm()
+        context['employeeForm'] = form
+
+    return render(request, template_name='first_app/testforms.html', context=context)
+
+
+"""
+--> Form generate HTML inputs/Elements(with all html features)
+--> Form validate data once data is submitted(only when we call form.is_valid()(True if valid)
+
+
+
+"""
 
 
 

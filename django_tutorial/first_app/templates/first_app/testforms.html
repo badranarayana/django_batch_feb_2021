@@ -1,0 +1,17 @@
+{% extends 'first_app/base.html' %}
+{% load custom_tags %}
+
+{% block title %} Test Forms {% endblock %}
+
+
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    {{ employeeForm.as_p }}
+
+    <button type="submit"> Save </button>
+
+</form>
+
+{% endblock %}
