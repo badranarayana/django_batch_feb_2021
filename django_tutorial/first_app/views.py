@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from .forms import EmployeeForm
+from .forms import EmployeeForm, InventoryModelForm
 
 # Simplae views to understad the django concepts, in realtime we may to write some complex views
 # Create your views here.
@@ -109,8 +109,25 @@ def render_with_django_form(request):
 """
 
 
+def inventory_view(request):
+    """
+    This view is responsible to give template and handle posting data and validation and save.
+    :param request:
+    :return:
+    """
+    context = {}
 
+    if request.method == 'GET':
+        context['inventoryForm'] = InventoryModelForm()
+        return render(request, template_name='first_app/inventory.html', context=context)
+    elif request.method == 'POST':
+        form = InventoryModelForm(request.POST)
+        context['inventoryForm'] = form
 
-
-
-
+        # Validating data
+        if form.is_valid():
+            # it is cleaned data
+            form.save()
+            return HttpResponse("Data saved.")
+        else:
+            return render(request, template_name='first_app/inventory.html', context=context)

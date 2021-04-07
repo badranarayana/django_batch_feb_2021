@@ -21,6 +21,17 @@ class Employee(models.Model):
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
 
 
+class Inventory(models.Model):
+    item = models.CharField(max_length=20)
+    item_code = models.IntegerField()
+    item_condition = models.CharField(max_length=50)
+    quantity = models.IntegerField()
+
+    def __str__(self):
+        return self.item
+
+
+
 
 
 

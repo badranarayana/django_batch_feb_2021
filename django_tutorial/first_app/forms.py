@@ -34,3 +34,28 @@ class EmployeeForm(forms.Form):
             raise forms.ValidationError("Date of birth should less than or equal to today", code="birth_date")
 
         return birth_date
+
+
+
+# Model form
+from .models import Inventory
+
+
+class InventoryModelForm(forms.ModelForm):
+    # Fields
+    class Meta:
+        model = Inventory
+        fields = ('item', 'item_code', 'item_condition', 'quantity')
+        #exclude = ('quantity',)
+
+    def clean_item_code(self):
+        item_code = self.cleaned_data['item_code']
+        if item_code <= 0:
+            raise forms.ValidationError("Item code should be greater than zero.")
+
+        return item_code
+
+
+
+
+
