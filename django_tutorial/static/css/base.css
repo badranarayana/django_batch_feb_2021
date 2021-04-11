@@ -12,6 +12,7 @@ background-color: tomato;
 
 .bodyclass {
 background-color: yellow;
-text-align: center;
+text-align: left;
+padding:10px
 ;
 }
