@@ -3,6 +3,8 @@ from datetime import datetime
 from django.contrib.auth import get_user_model
 from django.template.loader import get_template
 
+from first_app.forms import ContactModelForm
+
 
 User = get_user_model()
 
@@ -47,6 +49,17 @@ def show_users_table():
 # import pdb;pdb.set_trace()
 users_template = get_template('first_app/users.html')
 register.inclusion_tag(users_template)(show_users_table)
+
+
+def show_contact_form():
+    form = ContactModelForm()
+
+    return {'contactForm': form}
+
+# template to render form
+contact_template = get_template('first_app/contact.html')
+register.inclusion_tag(contact_template)(show_contact_form)
+
 
 
 

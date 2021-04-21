@@ -55,7 +55,13 @@ class InventoryModelForm(forms.ModelForm):
 
         return item_code
 
+from .models import Contact
 
 
+class ContactModelForm(forms.ModelForm):
+    # fields
+    class Meta:
+        model = Contact
+        fields = "__all__"
 
 

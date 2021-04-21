@@ -210,6 +210,59 @@ class CreateDept(Form):
 
 
 
+# Data base table to store contact(model class)
+# We need to have one django model form to handle html generation and validation.
+
+# View to handle contact transaction
+
+# url mapping(urls.py) path -->  view
+
+
+
+# database table(models.py)
+class Contact(models.Model):
+    name = ''
+    email = ''
+    phone_number = ''
+    address = ''
+
+
+
+
+# Forms.py:
+
+class ContactModelForm(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = '__all__'
+
+    def clean_email(self):
+        pass
+
+
+    def clean_phone_number(self):
+       pass
+
+
+
+# views.py
+from .forms import ContactModelForm
+
+def contact(request):
+    """
+    This takes the input and store it into contact table and validate before save into db.
+    post:
+    """
+
+    form = ContactModelForm(request.POST)
+
+    if form.is_valid():
+        form.save()
+    else:
+
+
+
+
 
 
 

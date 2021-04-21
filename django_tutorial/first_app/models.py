@@ -31,10 +31,11 @@ class Inventory(models.Model):
         return self.item
 
 
-
-
-
-
+class Contact(models.Model):
+    name = models.CharField(max_length=100, null=False)
+    email = models.EmailField(null=False)
+    phone_number = models.CharField(max_length=10, null=False)
+    comments = models.TextField(null=False)
 
 
 

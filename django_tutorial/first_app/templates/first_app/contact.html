@@ -1,0 +1,27 @@
+{% load widget_tweaks %}
+<div class="row">
+    <div class="col-sm-5">
+      <p>Contact us and we'll get back to you within 24 hours.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Hyderabad, India</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +91 6010326356</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> stepbysteplearnskill@gmail.com</p>
+    </div>
+    <div class="col-sm-7 slideanim">
+      <form action="url of contact" method="POST">
+
+          {% for field in contactForm.visible_fields %}
+            <div class="form-group">
+              {{ field.label_tag }}
+              {% render_field field class="form-control" %}
+            </div>
+          {% endfor %}
+
+          <br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">Send</button>
+        </div>
+      </div>
+        </form>
+    </div>
+</div>
