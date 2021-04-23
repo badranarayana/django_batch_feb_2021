@@ -9,6 +9,9 @@ from .views import get_dept_list
 from .views import create_dept
 from .views import render_with_django_form
 from .views import inventory_view
+
+from .views import (indexView, postFriend)
+
 urlpatterns = [
     path('home', home_view),
     path("aboutus", aboutus_view),
@@ -18,4 +21,7 @@ urlpatterns = [
     path("departments/create", create_dept, name='create_dept'),
     path("testforms", render_with_django_form, name='test_forms'),
     path("inventory", inventory_view, name="create_inventory"),
+    path('index', indexView),
+    path('post/ajax/friend', postFriend, name="post_friend"),
+
 ]

@@ -269,29 +269,13 @@ def contact(request):
 
 
 
+# Ajax request in django:
+# jquery js file (we need to download store app/ else use cdn)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# template
+# forms
+# view
+# models
 
 
 
