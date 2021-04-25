@@ -44,42 +44,6 @@
  </tbody>
  </table>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <script>
           /*
  On submiting the form, send the POST ajax
@@ -121,5 +85,30 @@ $("#friend-form").submit(function (e) {
     })
 })
 
+
+$("#id_nick_name").focusout(function (e) {
+   //alert("Focus out working");
+   e.preventDefault();
+   // get the nickname
+   var nick_name = $(this).val();
+   // GET AJAX request
+   $.ajax({
+           type: 'GET',
+           url: "{% url 'validate_nick_name' %}",
+           data: {"nick_name": nick_name},
+           success: function (response) {
+                      // if not valid user, alert the user
+                      if(!response["valid"]){
+                          alert(`You cannot create a friend with same nick name: ${nick_name}`)
+                          var nickName = $("#id_nick_name");
+                          nickName.val("")
+                          nickName.focus()
+                          }
+                     },
+           error: function (response) {
+               console.log(response)
+               }
+ })
+})
     </script>
 {% endblock %}

@@ -279,3 +279,36 @@ def contact(request):
 
 
 
+
+
+# Home work
+
+
+# create a signup form
+# name , date_of_ birth, country, state, distic
+
+# india, US
+
+countries = [('ind', "India"), ("us", 'USA')]
+
+# select country--> ind--> ajax('ind') --> get_states- view (
+states = {"ind": [('ap', "Andra pradesh"),  ("tg", "Telangana")]}
+
+sates.get('ind')
+
+# select state
+tg --> ajax('tg') --> get_distics --> views (statename)
+
+distics = {
+"ap": [('gnt', "Guntur"), ("krishna", "Krishna")],
+'tg': [('rngr', "Ranga reddy"), ("nlg", "Nalgonda")],
+}
+
+distics = distics.get('tg')
+
+
+
+
+# urls
+1) get_states?country_name="US"(sates dropdown)
+2) get_distics?state_name="ap"

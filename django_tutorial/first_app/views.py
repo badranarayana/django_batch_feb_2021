@@ -163,10 +163,37 @@ def postFriend(request):
     return JsonResponse({"error": ""}, status=400)
 
 
+def checkNickName(request):
+    # request should be ajax and method should be GET.
+    if request.is_ajax and request.method == "GET":
+        # get the nick name from the client side.
+        nick_name = request.GET.get("nick_name", None)
+        # check for the nick name in the database.
+        if Friend.objects.filter(nick_name = nick_name).exists(): # db check
+            # some  friend having same nick name
+            # it is not a valid nick_name
+            # if nick_name found return not valid new friend
+            return JsonResponse({"valid": False}, status=200)
+        else:
+            # nick_name available
+            return JsonResponse({'valid': True}, status=200)
+
+    return JsonResponse({"error": "This view should invoke through ajax"}, status=400)
 
 
+def signup(request):
+    # sigupform.html
+    # country --> ind, us
+    pass
 
 
+def get_states(request):
+    states = {"ind": [('ap', "Andra pradesh"), ("tg", "Telangana")]}
 
 
-
+def get_dictics(request):
+    distics = {
+        "ap": [('gnt', "Guntur"), ("krishna", "Krishna")],
+        'tg': [('rngr', "Ranga reddy"), ("nlg", "Nalgonda")],
+    }
+    # please share you network --> reach out to more number

@@ -10,7 +10,7 @@ from .views import create_dept
 from .views import render_with_django_form
 from .views import inventory_view
 
-from .views import (indexView, postFriend)
+from .views import (indexView, postFriend, checkNickName)
 
 urlpatterns = [
     path('home', home_view),
@@ -23,5 +23,6 @@ urlpatterns = [
     path("inventory", inventory_view, name="create_inventory"),
     path('index', indexView),
     path('post/ajax/friend', postFriend, name="post_friend"),
+    path('get/ajax/validate/nickname', checkNickName, name="validate_nick_name"),
 
 ]
