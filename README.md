@@ -1,2 +1,2 @@
-# django_batch_feb_2021
+Just for learning
 this repos is to sharing django knowledge for learners
